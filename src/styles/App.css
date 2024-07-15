@@ -1,0 +1,103 @@
+.post__form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+}
+
+.post__form__buttons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+
+.post__form__input {
+    border: 2px solid var(--primary-color);
+    padding: 10px 20px;
+    width: 100%;
+    transition: 0.1s;
+    display: block;
+}
+
+.post__form__input:focus {
+    transform: scale(0.995);
+    transition: 0.1s;
+}
+
+.post__form__button {
+    border: 2px solid var(--primary-color);
+    background: white;
+    padding: 10px 20px;
+    transition: 0.1s;
+}
+
+.post__form__button:hover {
+    transform: scale(0.98);
+    transition: 0.1s;
+}
+
+.post__form__checkbox {
+    appearance: none;
+    border: 2px solid var(--primary-color);
+    background: white;
+    transition: 0.1s;
+    width: 47px;
+    height: 47px;
+}
+
+.post__form__checkbox:checked {
+    transition: 0.1s;
+    background-color: var(--primary-color);
+}
+
+.post__form__validation__error {
+    padding: 0;
+    margin: 0;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post {
+    border: 2px solid var(--primary-color);
+    padding: 10px 20px;
+    cursor: grab;
+}
+
+.post__title {
+    
+}
+
+.post__body {
+
+}
+
+.post__delete__button {
+    border: 2px solid var(--primary-color);
+    background: white;
+    padding: 10px 20px;
+    transition: 0.1s;
+}
+
+.post__delete__button:hover {
+    transform: scale(0.98);
+    transition: 0.1s;
+}
+
+.search__input {
+    border: 2px solid var(--primary-color);
+    padding: 10px 20px;
+    width: 100%;
+    transition: 0.1s;
+    display: block;
+    margin-top: 10px;
+}
+
+.search__input:focus {
+    transform: scale(0.995);
+    transition: 0.1s;
+}
