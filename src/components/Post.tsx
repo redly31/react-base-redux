@@ -1,37 +1,31 @@
-import { DragEvent } from "react";
 import { IPost } from "../types/post";
-import { useTypedDispatch } from "../hooks/reduxHooks";
-import { deletePost } from "../store/postSlice";
+import { useDeletePostMutation } from "../store/postsAPI";
 
 
 interface PostProps {
   post: IPost;
-  dragStartHandler: (post: IPost) => void;
-  dragOverHandler: (e: DragEvent<HTMLElement>) => void;
-  dropHandler: (e: DragEvent<HTMLElement>, post: IPost) => void;
 }
 
 export default function Post({
   post,
-  dragStartHandler,
-  dragOverHandler,
-  dropHandler,
 }: PostProps) {
-  const dispatch = useTypedDispatch()
+  
+  const [deletePost] = useDeletePostMutation()
+
+  const removePost = async (id: string) => {
+    await deletePost(id)
+  }
+
   return (
     <article
       key={post.id}
       className="post"
-      onDragStart={() => dragStartHandler(post)}
-      onDragOver={(e) => dragOverHandler(e)}
-      onDrop={(e) => dropHandler(e, post)}
-      draggable={true}
     >
       <h3 className="post__title">{post.title}</h3>
       <p className="post__body">{post.body}</p>
       <button
         className="post__delete__button"
-        onClick={() => dispatch(deletePost(post.id))}
+        onClick={() => removePost(post.id)}
       >
         Delete Post
       </button>

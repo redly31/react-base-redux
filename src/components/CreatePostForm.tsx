@@ -1,21 +1,16 @@
 import { useState } from "react";
+import { useAddPostMutation } from "../store/postsAPI";
 
-interface CreatePostFormProps {
-  createPost: (post: {
-    title: string;
-    body: string;
-    id: number;
-    order: number;
-  }) => void;
-}
 
-export default function CreatePostForm({ createPost }: CreatePostFormProps) {
+
+export default function CreatePostForm() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [checked, setChecked] = useState(false);
   const [isValidationSuccess, setIsValidationSuccess] = useState<boolean>(true);
+  const [addPost] = useAddPostMutation()
 
-  const createNewPost = (e: React.ChangeEvent<any>) => {
+  const createNewPost = async (e: React.ChangeEvent<any>) => {
     e.preventDefault();
 
     if(title.length === 0 || body.length === 0) {
@@ -23,8 +18,7 @@ export default function CreatePostForm({ createPost }: CreatePostFormProps) {
       return null
     }
     setIsValidationSuccess(true)
-    
-    createPost({title, body, id: Date.now(), order: 0});
+    await addPost({title, body, id: String(Date.now())})
 
     if (checked) {
       setTitle("");

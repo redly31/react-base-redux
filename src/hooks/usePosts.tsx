@@ -5,11 +5,11 @@ export const usePosts = (
     posts: IPost[],
     search: string
   ) => {
-    const sortedAndSearchedPosts = useMemo(() => {
+    const searchedPosts = useMemo(() => {
       return posts.filter((post) =>
         post.title.toLowerCase().includes(search.toLowerCase())
       );
     }, [posts, search]);
   
-    return sortedAndSearchedPosts;
+    return searchedPosts;
   };
