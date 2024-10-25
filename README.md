@@ -2,6 +2,8 @@
 <h3>Стек</h3>
 <ul>
   <li>React</li>
-  <li>RTK-Query</li>
+  <li>CSS</li>
   <li>TypeScript</li>
+  <li>Redux-Toolkit</li>
 </ul>
+<h3>Без архитектуры</h3>
